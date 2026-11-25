@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lovemask — Stories Behind the Mask. A home for novels, short fiction, poetry and essays.">
+  <meta name="theme-color" content="#17151b">
+  <title>Lovemask — Stories Behind the Mask</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night:#17151b; --night-soft:#24212a; --paper:#f7f4ef; --white:#fffefa;
+      --ink:#24212a; --muted:#77717a; --wine:#8e405b; --rose:#d9a7b7;
+      --gold:#c8a875; --line:#e8e1da; --sage:#aab9a9;
+      --serif:"Playfair Display", Georgia, serif; --sans:"DM Sans", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}
+    a{color:inherit}
+    .site-header{position:sticky;top:0;z-index:20;background:rgba(23,21,27,.96);backdrop-filter:blur(14px);color:#fff;padding:0 5vw;border-bottom:1px solid rgba(200,168,117,.24)}
+    .nav{max-width:1180px;min-height:76px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:var(--serif);font-size:1.45rem;letter-spacing:.16em;text-decoration:none;color:#f2e8dc}
+    .nav-links{display:flex;align-items:center;gap:clamp(14px,2.5vw,32px);flex-wrap:wrap}
+    .nav-links a{font-size:.84rem;color:#e5dfe4;text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--rose)}
+    .nav-cta{border:1px solid rgba(217,167,183,.7);padding:9px 15px;border-radius:999px}
+    .hero{background:var(--night);color:#fff;position:relative;overflow:hidden;padding:clamp(76px,12vw,150px) 6vw 112px}
+    .hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-110px;top:-210px;background:radial-gradient(circle,rgba(142,64,91,.4),rgba(142,64,91,0) 68%)}
+    .hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(200,168,117,.18);border-radius:50%;right:8%;bottom:-260px;box-shadow:0 0 0 35px rgba(200,168,117,.035),0 0 0 70px rgba(200,168,117,.025)}
+    .hero-inner{max-width:1180px;margin:auto;position:relative;z-index:1}
+    .eyebrow,.section-kicker{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+    h1,h2,h3{font-family:var(--serif);font-weight:500}
+    h1{font-size:clamp(3.5rem,10vw,7.8rem);letter-spacing:.055em;line-height:.98;margin:22px 0 18px}
+    .hero-tagline{font-family:var(--serif);font-size:clamp(1.3rem,3vw,2rem);color:#e7cbd4;margin:0 0 18px}
+    .hero-copy{max-width:610px;color:#c9c2cb;font-size:1.02rem;margin:0 0 32px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:999px;text-decoration:none;font-size:.88rem;font-weight:600;transition:transform .2s,background .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--rose);color:#211820}
+    .btn-outline{border:1px solid #766b78;color:#fff}
+    .hero-foot{max-width:1180px;margin:65px auto 0;display:flex;gap:28px;flex-wrap:wrap;color:#a9a1ad;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+    .hero-foot span:before{content:"✦";color:var(--gold);margin-right:9px}
+    main{max-width:1180px;margin:auto;padding:90px 5vw}
+    section{scroll-margin-top:95px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:30px}
+    .section-head h2{font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.1;margin:8px 0 0}
+    .section-head p{max-width:420px;color:var(--muted);margin:0}
+    .genre-strip{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 28px}
+    .genre{font-size:.76rem;border:1px solid var(--line);border-radius:999px;padding:7px 13px;color:#5f5962;background:rgba(255,255,255,.5)}
+    .work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .work-card{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 35px rgba(35,26,34,.045);display:flex;flex-direction:column}
+    .work-art{min-height:255px;display:flex;align-items:end;padding:25px;position:relative;overflow:hidden;color:white}
+    .art-jade{background:radial-gradient(ellipse at 70% 20%,rgba(191,216,194,.65),transparent 35%),linear-gradient(135deg,#172f35,#41645c 58%,#18252c)}
+    .art-jade:before{content:"";position:absolute;width:240px;height:240px;border:1px solid rgba(255,255,255,.3);border-radius:50%;right:-35px;top:-85px;box-shadow:0 0 0 22px rgba(255,255,255,.04),0 0 0 48px rgba(255,255,255,.035)}
+    .art-jade:after{content:"";position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(transparent,rgba(8,19,23,.55))}
+    .art-editorial{background:linear-gradient(135deg,#a96b78,#e1b7a8);color:#321f2a}
+    .art-editorial:before{content:"";position:absolute;inset:25px;border:1px solid rgba(50,31,42,.35);border-radius:50% 50% 8px 8px}
+    .art-generic{background:linear-gradient(135deg,#34313d,#777083)}
+    .art-title{position:relative;z-index:2}
+    .art-title small{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;opacity:.82}
+    .art-title strong{display:block;font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.5rem);font-weight:500;line-height:1.1;margin-top:8px}
+    .work-content{padding:25px 27px 28px;display:flex;flex-direction:column;flex:1}
+    .meta{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);font-weight:700}
+    .work-content h3{font-size:1.65rem;margin:7px 0}
+    .work-content p{color:#68616b;margin:0 0 20px}
+    .work-content .btn{align-self:flex-start;margin-top:auto}
+    .placeholder{border:1px dashed #c9bec6;background:rgba(255,255,255,.35);border-radius:18px;padding:28px;display:flex;flex-direction:column;justify-content:center;min-height:240px}
+    .placeholder h3{font-size:1.5rem;margin:0 0 8px}
+    .placeholder p{color:var(--muted);margin:0}
+    .moments{margin-top:100px;display:grid;grid-template-columns:.9fr 1.1fr;gap:38px;align-items:center;background:#eee7e5;border-radius:22px;padding:clamp(28px,5vw,58px)}
+    .moments-art{min-height:290px;border-radius:16px;background:linear-gradient(145deg,#ead9d4,#c89aa6);display:grid;place-items:center;position:relative;overflow:hidden}
+    .moments-art:before{content:"";width:180px;height:230px;border:1px solid rgba(70,39,53,.45);border-radius:90px 90px 14px 14px;transform:rotate(-9deg);box-shadow:18px 14px 0 -1px rgba(255,255,255,.18)}
+    .moments-art:after{content:"✧";position:absolute;font-size:4rem;color:#6c3b4d}
+    .moments-copy h2{font-size:clamp(2rem,4vw,3rem);margin:8px 0 12px}
+    .moments-copy p{color:#625a62;max-width:510px}
+    .about{margin-top:100px;display:grid;grid-template-columns:.65fr 1.35fr;gap:35px;padding-top:45px;border-top:1px solid var(--line)}
+    .about h2{font-size:2.4rem;margin:0}
+    .about-copy{max-width:680px;color:#625c65}
+    .about-copy p:first-child{font-size:1.18rem;color:#3c3740}
+    .updates{margin-top:90px;background:var(--night-soft);color:#fff;border-radius:20px;padding:clamp(30px,5vw,55px);display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}
+    .updates h2{font-size:2rem;margin:5px 0}
+    .updates p{color:#c4bdc8;margin:0;max-width:570px}
+    footer{background:var(--night);color:#c9c1cb;padding:38px 5vw;text-align:center}
+    footer .brand{display:inline-block;margin-bottom:12px}
+    footer p{font-size:.82rem;margin:5px 0;color:#938b98}
+    .footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:14px 0}
+    .footer-links a{font-size:.84rem;text-decoration:none;color:#e4c5cf}
+    @media(max-width:760px){
+      .nav{padding:16px 0;align-items:flex-start;flex-direction:column;gap:12px}
+      .nav-links{gap:12px 18px}
+      .nav-links a{font-size:.78rem}
+      .section-head{display:block}
+      .section-head p{margin-top:12px}
+      .work-grid{grid-template-columns:1fr}
+      .moments,.about{grid-template-columns:1fr}
+      .moments{margin-top:75px}
+      main{padding-top:65px}
+      .hero{padding-top:85px}
+      .hero-foot{margin-top:48px}
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#home">LOVEMASK</a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#fiction">Fiction</a>
+      <a href="#moments">Lovemask Moments</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#updates">Find my work</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="eyebrow">The creative home of Lovemask</div>
+    <h1>LOVEMASK</h1>
+    <p class="hero-tagline">Stories Behind the Mask.</p>
+    <p class="hero-copy">A growing collection of fictional worlds, unforgettable characters, poems and reflections. Different genres, different voices — all gathered in one place.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#fiction">Explore fiction</a>
+      <a class="btn btn-outline" href="#moments">Read Lovemask Moments</a>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span>Novels & short fiction</span><span>Poetry & essays</span><span>Ideas & imagination</span>
+  </div>
+</section>
+
+<main>
+  <section id="fiction">
+    <div class="section-head">
+      <div><div class="section-kicker">The reading room</div><h2>Fiction & Novels</h2></div>
+      <p>Fantasy, romance, mystery, contemporary stories and whatever world comes next. This space is open to every genre.</p>
+    </div>
+    <div class="genre-strip" aria-label="Genres">
+      <span class="genre">Fantasy</span><span class="genre">Romance</span><span class="genre">Mystery</span>
+      <span class="genre">Contemporary</span><span class="genre">Science fiction</span><span class="genre">Drama</span>
+      <span class="genre">Short stories</span><span class="genre">More to come</span>
+    </div>
+    <div class="work-grid">
+      <article class="work-card">
+        <div class="work-art art-jade"><div class="art-title"><small>Featured novel · Danmei / Xianxia</small><strong>Beneath the<br>Jade Skies</strong></div></div>
+        <div class="work-content">
+          <div class="meta">Fantasy · Cultivation · Transmigration</div>
+          <h3>Beneath the Jade Skies</h3>
+          <p>He died beneath the city lights. He woke beneath a stranger's jade skies. Follow Shen Duan into a world of ancient clans, mistaken identities and an unexpected marriage.</p>
+          <a class="btn btn-primary" href="https://www.scribblehub.com/series/2666554/beneath-the-jade-skies/" target="_blank" rel="noopener noreferrer">Read on Scribble Hub ↗</a>
+        </div>
+      </article>
+      <article class="placeholder">
+        <div class="section-kicker">Your next story</div>
+        <h3>A space for what you write next.</h3>
+        <p>Add another novel, novella or short story here — whether it is romance, thriller, science fiction, contemporary fiction or a completely different genre.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="moments" id="moments">
+    <div class="moments-art" aria-hidden="true"></div>
+    <div class="moments-copy">
+      <div class="section-kicker">Words from the quieter corners</div>
+      <h2>Lovemask Moments</h2>
+      <p>A separate space for poetry, personal reflections and articles — thoughts about life, feelings, growth and the little things that deserve to be written down.</p>
+      <a class="btn btn-primary" href="https://substack.com/@lovemask" target="_blank" rel="noopener noreferrer">Visit Substack ↗</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div><div class="section-kicker">Behind the name</div><h2>About Lovemask</h2></div>
+    <div class="about-copy">
+      <p>I'm Lovemask — a writer drawn to stories, characters, imagination and the many ways words can hold an experience.</p>
+      <p>This website brings my creative work together: fiction in one place, poetry and articles in another. The genres may change as I grow as a writer, but the curiosity behind them stays.</p>
+      <p><em>Welcome to the worlds behind the mask.</em></p>
+    </div>
+  </section>
+
+  <section class="updates" id="updates">
+    <div><div class="section-kicker">Follow along</div><h2>Find my latest work</h2><p>Read the ongoing novel on Scribble Hub, or visit Substack for poems, essays and reflections.</p></div>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://www.scribblehub.com/series/2666554/beneath-the-jade-skies/" target="_blank" rel="noopener noreferrer">Scribble Hub ↗</a>
+      <a class="btn btn-outline" href="https://substack.com/@lovemask" target="_blank" rel="noopener noreferrer">Substack ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="brand" href="#home">LOVEMASK</a>
+  <p>STORIES · POETRY · IMAGINATION</p>
+  <div class="footer-links">
+    <a href="https://www.scribblehub.com/series/2666554/beneath-the-jade-skies/" target="_blank" rel="noopener noreferrer">Scribble Hub</a>
+    <a href="https://substack.com/@lovemask" target="_blank" rel="noopener noreferrer">Substack</a>
+    <a href="#about">About</a>
+  </div>
+  <p>© 2026 Lovemask. Stories Behind the Mask.</p>
+</footer>
+</body>
+</html>
